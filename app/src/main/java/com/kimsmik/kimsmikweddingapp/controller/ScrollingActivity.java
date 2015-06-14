@@ -1,7 +1,8 @@
-package com.kimsmik.kimsmikweddingapp;
+package com.kimsmik.kimsmikweddingapp.controller;
 
 import java.util.Locale;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -18,8 +19,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.ConnectionResult;
+import com.kimsmik.kimsmikweddingapp.service.GCMIntentService;
+import com.kimsmik.kimsmikweddingapp.R;
 
-public class MainActivity extends ActionBarActivity {
+public class ScrollingActivity extends ActionBarActivity {
 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     /**
@@ -40,16 +43,25 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_scrolling);
 
+
+        ValueAnimator ani = ValueAnimator.ofFloat(0f,2000);
+        ani.setDuration(1000);
+        ani.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+
+            }
+        });
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
 
         if (checkPlayServices()) {
             // Start IntentService to register this application with GCM.
@@ -62,7 +74,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_scrolling, menu);
         return true;
     }
 

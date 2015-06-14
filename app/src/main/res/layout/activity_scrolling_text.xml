@@ -1,17 +1,18 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#0099cc"
-    tools:context="com.kimsmik.kimsmikweddingapp.ScrollingTextActivity"
+    android:layout_height="match_parent" android:background="#000000"
+    tools:context="com.kimsmik.kimsmikweddingapp.controller.ScrollingTextActivity"
     android:id="@+id/bgView">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView android:id="@+id/scrollingText" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:keepScreenOn="true" android:textColor="#33b5e5"
-        android:textStyle="bold" android:textSize="50sp" android:gravity="center"
-        android:text="@string/dummy_content" />
+    <com.kimsmik.kimsmikweddingapp.object.MarqueeTextView android:id="@+id/scrollingText" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:keepScreenOn="true" android:textColor="#fff2ff67"
+        android:textStyle="bold" android:textSize="200sp"
+        android:text="@string/dummy_content"
+        android:layout_centerVertical="true" />
 
 
 
-</FrameLayout>
+</RelativeLayout>

@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <permission
         android:name="com.kimsmik.kimsmikweddingapp.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
@@ -19,17 +22,12 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".controller.ScrollingActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".ScrollingTextActivity"
+            android:name=".controller.ScrollingTextActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_scrolling_text"
             android:screenOrientation="landscape"
@@ -37,12 +35,12 @@
         </activity>
 
         <service
-            android:name=".KimSmikService"
+            android:name=".service.KimSmikService"
             android:enabled="true"
             android:exported="true" >
         </service>
         <service
-            android:name=".GCMIntentService"
+            android:name=".service.GCMIntentService"
             android:exported="false" >
         </service>
 
@@ -59,20 +57,30 @@
         </receiver>
 
         <service
-            android:name=".GCMReceiverService"
+            android:name=".service.GCMReceiverService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
         <service
-            android:name=".GCMInstanceIDListenerService"
+            android:name=".service.GCMInstanceIDListenerService"
             android:exported="false" >
             <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID"/>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
-
         </service>
+
+        <activity
+            android:name=".controller.MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

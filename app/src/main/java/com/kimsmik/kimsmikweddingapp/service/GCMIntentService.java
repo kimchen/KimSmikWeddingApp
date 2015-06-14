@@ -1,4 +1,4 @@
-package com.kimsmik.kimsmikweddingapp;
+package com.kimsmik.kimsmikweddingapp.service;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import com.google.android.gms.gcm.GcmPubSub;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 
@@ -16,7 +17,7 @@ public class GCMIntentService extends IntentService {
     public GCMIntentService() {
         super("GCMIntentService");
     }
-
+    private static String GCM_TOPIC = "kimsmik_wedding";
     @Override
     protected void onHandleIntent(Intent intent) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -25,6 +26,7 @@ public class GCMIntentService extends IntentService {
             // In the (unlikely) event that multiple refresh operations occur simultaneously,
             // ensure that they are processed sequentially.
             synchronized (this) {
+                GcmPubSub pubSub = GcmPubSub.getInstance(this);
                 // [START register_for_gcm]
                 // Initially this call goes out to the network to retrieve the token, subsequent calls
                 // are local.
@@ -32,6 +34,7 @@ public class GCMIntentService extends IntentService {
                 InstanceID instanceID = InstanceID.getInstance(this);
                 String token = instanceID.getToken("336172888047",
                         GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+                pubSub.subscribe(token,"/topics/" + GCM_TOPIC,null);
                 // [END get_token]
 
                 // TODO: Implement this method to send any registration to your app's servers.
@@ -52,8 +55,8 @@ public class GCMIntentService extends IntentService {
             sharedPreferences.edit().putBoolean("SENT_TO_SERVER", false).apply();
         }
         // Notify UI that registration has completed, so the progress indicator can be hidden.
-        Intent registrationComplete = new Intent("REGISTRATION_COMPLETE");
-        LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
+        //Intent registrationComplete = new Intent("REGISTRATION_COMPLETE");
+        //LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
     }
 
 }

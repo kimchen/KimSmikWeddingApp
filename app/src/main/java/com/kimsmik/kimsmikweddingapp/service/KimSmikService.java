@@ -1,4 +1,4 @@
-package com.kimsmik.kimsmikweddingapp;
+package com.kimsmik.kimsmikweddingapp.service;
 
 import android.app.Service;
 import android.content.Intent;

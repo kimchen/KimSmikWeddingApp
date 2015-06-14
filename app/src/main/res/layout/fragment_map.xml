@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.kimsmik.kimsmikweddingapp.controller.MapFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/photoView"
+        android:layout_gravity="center_horizontal|top"
+        android:src="@drawable/place_img"
+        android:adjustViewBounds="true" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mapView"
+        android:layout_gravity="center_horizontal|top"
+        android:src="@drawable/place_map"
+        android:adjustViewBounds="true"
+        android:layout_below="@+id/photoView"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/transInfoView"
+        android:layout_gravity="center_horizontal|top"
+        android:src="@drawable/place_trans"
+        android:adjustViewBounds="true"
+        android:layout_below="@+id/mapView"/>
+
+</RelativeLayout>
