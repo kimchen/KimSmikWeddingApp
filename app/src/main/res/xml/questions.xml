@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Questions xmlns:android="http://schemas.android.com/apk/res/android">
-    <Quest text="新郎大學時參加過哪種系隊?">
-        <Option text="足球"/>
-        <Option text="籃球" anwser="true"/>
-        <Option text="桌球"/>
-        <Option text="排球"/>
-    </Quest>
-
     <Quest text="新郎的星座是?">
         <Option text="魔蝎"/>
-        <Option text="巨蟹"/>
+        <Option text="天秤"/>
         <Option text="金牛"/>
         <Option text="天蠍" anwser="true"/>
     </Quest>
-
+    <Quest text="新娘的星座是?">
+        <Option text="天秤"/>
+        <Option text="巨蟹" anwser="true"/>
+        <Option text="雙魚"/>
+        <Option text="雙子"/>
+    </Quest>
+    <Quest text="新郎是哪裡人?">
+        <Option text="三重"/>
+        <Option text="板橋"/>
+        <Option text="中和"/>
+        <Option text="新莊" anwser="true"/>
+    </Quest>
     <Quest text="新郎的爸媽以前的工作是?">
         <Option text="工程師"/>
         <Option text="老師"/>
         <Option text="菜販" anwser="true"/>
         <Option text="肉販"/>
+    </Quest>
+    <Quest text="新郎大學時參加過哪種系隊?">
+        <Option text="足球"/>
+        <Option text="籃球" anwser="true"/>
+        <Option text="桌球"/>
+        <Option text="排球"/>
     </Quest>
 </Questions>
