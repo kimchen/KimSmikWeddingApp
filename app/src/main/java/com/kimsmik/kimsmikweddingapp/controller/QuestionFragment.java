@@ -30,9 +30,15 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
     private TextView questText;
     private TextView progressText;
     private int nowQuestIndex = 0;
+    private int correctNum = 0;
+    private QuizFinishListener finishListener = null;
 
     public QuestionFragment() {
 
+    }
+
+    public void SetOnQuizFinishListener(QuizFinishListener l){
+        finishListener = l;
     }
 
     @Override
@@ -74,6 +80,7 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         nowQuestIndex = 0;
+        correctNum = 0;
         View view = inflater.inflate(R.layout.fragment_question, container, false);
 
         optionGroup = (RadioGroup)(view.findViewById(R.id.optionGroup));
@@ -90,7 +97,7 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
             }
         });
 
-        //SetNextQuestion();
+        SetNextQuestion();
         return view;
     }
 
@@ -98,12 +105,15 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
         RadioButton checkedBtn = (RadioButton)getView().findViewById(optionGroup.getCheckedRadioButtonId());
         if(checkedBtn == null)
             return false;
-
+        Question quest = questions.get(nowQuestIndex);
+        if(checkedBtn.getText().equals(quest.answer))
+            correctNum++;
         return true;
     }
     private void SetNextQuestion(){
         if(nowQuestIndex >= questions.size()){
-
+            if(finishListener != null)
+                finishListener.OnFinish(correctNum,questions.size());
         }else{
             optionGroup.clearCheck();
             Question quest = questions.get(nowQuestIndex);
@@ -120,17 +130,19 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
     @Override
     public void onResume() {
         super.onResume();
-        SetNextQuestion();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        nowQuestIndex = 0;
     }
 
     @Override
     public String GetTitle() {
         return "有獎問答";
+    }
+
+    public interface QuizFinishListener{
+        void OnFinish(int correctNum, int totalNum);
     }
 }
