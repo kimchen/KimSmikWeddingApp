@@ -1,39 +1,36 @@
 package com.kimsmik.kimsmikweddingapp.controller;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.kimsmik.kimsmikweddingapp.IMenuFragment;
 import com.kimsmik.kimsmikweddingapp.R;
 
 
-public class QuestStartFragment extends Fragment {
+public class QuestStartFragment extends Fragment implements IMenuFragment {
     private static String PREF_STAGE_CLEAR = "quiz_stage_clear";
     private QuizStartListener startListener = null;
-    private FragmentActivity act;
-
+    private ViewGroup uiContainer = null;
+    private ViewGroup fragContainer = null;
+    private ImageView clearView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        act = (FragmentActivity)activity;
-    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.fragment_quest_start, container, false);
 
-        ImageView clearView = (ImageView)root.findViewById(R.id.clearView);
+        clearView = (ImageView)root.findViewById(R.id.clearView);
         SharedPreferences pref = getActivity().getPreferences(Context.MODE_PRIVATE);
         if(pref.getBoolean(PREF_STAGE_CLEAR,false)){
             clearView.setVisibility(View.VISIBLE);
@@ -41,13 +38,29 @@ public class QuestStartFragment extends Fragment {
             clearView.setVisibility(View.INVISIBLE);
         }
 
+        uiContainer = (ViewGroup)root.findViewById(R.id.uiContainer);
+        fragContainer = (ViewGroup)root.findViewById(R.id.fragContainer);
+
         ImageView beginBtn = (ImageView)root.findViewById(R.id.beginBtn);
         beginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (act != null) {
-                        act.getSupportFragmentManager().beginTransaction().replace(R.id.container, new QuestionFragment()).commit();
+                uiContainer.setVisibility(View.INVISIBLE);
+                final QuestionFragment quesFrag = new QuestionFragment();
+                quesFrag.SetOnQuizFinishListener(new QuestionFragment.QuizFinishListener() {
+                    @Override
+                    public void OnFinish(boolean clear) {
+                        uiContainer.setVisibility(View.VISIBLE);
+                        getActivity().getSupportFragmentManager().beginTransaction().detach(quesFrag).commit();
+                        if(clear){
+                            SharedPreferences pref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                            pref.edit().putBoolean(PREF_STAGE_CLEAR,true).commit();
+                            clearView.setVisibility(View.VISIBLE);
+                        }
                     }
+                });
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragContainer, quesFrag).commit();
+
 //                if(startListener != null) {
 //                    startListener.OnStart();
 //                }
@@ -61,5 +74,10 @@ public class QuestStartFragment extends Fragment {
     }
     public interface QuizStartListener{
         void OnStart();
+    }
+
+    @Override
+    public String GetTitle() {
+        return "有獎問答";
     }
 }

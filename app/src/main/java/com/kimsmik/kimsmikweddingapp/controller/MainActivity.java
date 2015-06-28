@@ -153,7 +153,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             super(fm);
             menuFragments.add(new HomeFragment());
             menuFragments.add(new MapFragment());
-            menuFragments.add(new QuestionFrameFragment());
+            menuFragments.add(new QuestStartFragment());
         }
 
         @Override

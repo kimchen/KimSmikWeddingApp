@@ -12,30 +12,11 @@ import com.kimsmik.kimsmikweddingapp.IMenuFragment;
 import com.kimsmik.kimsmikweddingapp.R;
 
 public class QuestionFrameFragment extends Fragment implements IMenuFragment {
-    private static QuestStartFragment startFrg = null;
-    private static QuestionFragment questFrg = null;
-
     private FragmentActivity act;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if(startFrg == null){
-//            startFrg = new QuestStartFragment();
-//            startFrg.SetOnQuizStartListener(new QuestStartFragment.QuizStartListener() {
-//                @Override
-//                public void OnStart() {
-//                    if (act != null) {
-//                        act.getSupportFragmentManager().beginTransaction().replace(R.id.container, questFrg).commit();
-//                    }
-//                }
-//            });
-//        }
-//        if(questFrg == null){
-//            questFrg = new QuestionFragment();
-//        }
-//        if(act != null){
-//            act.getSupportFragmentManager().beginTransaction().replace(R.id.container, startFrg).commit();
-//        }
     }
 
 
@@ -49,7 +30,19 @@ public class QuestionFrameFragment extends Fragment implements IMenuFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root =  inflater.inflate(R.layout.fragment_question_frame, container, false);
-
+        if(act != null) {
+            QuestStartFragment startFragment = (QuestStartFragment) act.getSupportFragmentManager().findFragmentById(R.id.startFrag);
+//            if(startFragment != null){
+//                startFragment.SetOnQuizStartListener(new QuestStartFragment.QuizStartListener() {
+//                @Override
+//                public void OnStart() {
+//                    if (act != null) {
+//                        act.getSupportFragmentManager().beginTransaction().replace(R.id.startFrag, new QuestionFragment()).commit();
+//                    }
+//                }
+//                });
+//            }
+        }
         return root;
     }
 

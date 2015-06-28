@@ -1,9 +1,12 @@
 package com.kimsmik.kimsmikweddingapp.controller;
 
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,12 +111,26 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
         Question quest = questions.get(nowQuestIndex);
         if(checkedBtn.getText().equals(quest.answer))
             correctNum++;
+        nowQuestIndex++;
         return true;
     }
     private void SetNextQuestion(){
         if(nowQuestIndex >= questions.size()){
-            if(finishListener != null)
-                finishListener.OnFinish(correctNum,questions.size());
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+            dialogBuilder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if(finishListener != null) {
+                        if (correctNum == questions.size())
+                            finishListener.OnFinish(true);
+                        else
+                            finishListener.OnFinish(false);
+                    }
+                }
+            });
+            dialogBuilder.setMessage(GetResultString());
+            dialogBuilder.setTitle("答題結果");
+            dialogBuilder.show();
         }else{
             optionGroup.clearCheck();
             Question quest = questions.get(nowQuestIndex);
@@ -122,11 +139,25 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
                 RadioButton radioBtn =  (RadioButton)optionGroup.getChildAt(i);
                 radioBtn.setText(quest.option.get(i));
             }
-            nowQuestIndex++;
-            progressText.setText(nowQuestIndex + "/" + questions.size());
+            progressText.setText((nowQuestIndex + 1) + "/" + questions.size());
         }
     }
 
+    private String GetResultString(){
+        String msg = "答對題數 : " + correctNum + "/" + questions.size() + "\n\n";
+        float persent = ((float)correctNum)/((float)questions.size());
+        if(persent >= 1){
+            msg += "恭喜你答對所有題目\n你真是太了解新人了\n婚禮當天請至現場\n出示App禮的通關證明\n以換取神祕小禮";
+        }else if(persent >= 0.8){
+            msg += "真是太可惜了\n只差一點點就全部正解了呢\n請再接再厲";
+        }else if(persent >= 0.5){
+            msg += "看來你對新人還是一知半解的喔\n但沒關係\n請再多試幾次\n也可更了解新人喔";
+        }else{
+            msg += "哎呀\n你對新人不是很了解的樣子呢\n這樣子不太行唷\n請多試幾次\n也許你會慢慢了解新人唷";
+        }
+
+        return msg;
+    }
     @Override
     public void onResume() {
         super.onResume();
@@ -143,6 +174,6 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
     }
 
     public interface QuizFinishListener{
-        void OnFinish(int correctNum, int totalNum);
+        void OnFinish(boolean clear);
     }
 }

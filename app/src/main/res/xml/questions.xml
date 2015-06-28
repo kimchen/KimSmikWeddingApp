@@ -4,11 +4,11 @@
         <Option text="魔蝎"/>
         <Option text="天秤"/>
         <Option text="金牛"/>
-        <Option text="天蠍" anwser="true"/>
+        <Option text="天蠍" answer="true"/>
     </Quest>
     <Quest text="新娘的星座是?">
         <Option text="天秤"/>
-        <Option text="巨蟹" anwser="true"/>
+        <Option text="巨蟹" answer="true"/>
         <Option text="雙魚"/>
         <Option text="雙子"/>
     </Quest>
@@ -16,18 +16,42 @@
         <Option text="三重"/>
         <Option text="板橋"/>
         <Option text="中和"/>
-        <Option text="新莊" anwser="true"/>
+        <Option text="新莊" answer="true"/>
     </Quest>
-    <Quest text="新郎的爸媽以前的工作是?">
-        <Option text="工程師"/>
-        <Option text="老師"/>
-        <Option text="菜販" anwser="true"/>
-        <Option text="肉販"/>
+    <Quest text="新娘家住在哪一個捷運站附近?">
+        <Option text="六張犁" answer="true"/>
+        <Option text="國父紀念館"/>
+        <Option text="公館"/>
+        <Option text="中正紀念堂"/>
     </Quest>
     <Quest text="新郎大學時參加過哪種系隊?">
         <Option text="足球"/>
-        <Option text="籃球" anwser="true"/>
+        <Option text="籃球" answer="true"/>
         <Option text="桌球"/>
         <Option text="排球"/>
+    </Quest>
+    <Quest text="新娘以前就讀於哪所大學?">
+        <Option text="東吳大學"/>
+        <Option text="師範大學"/>
+        <Option text="輔仁大學" answer="true"/>
+        <Option text="台北科技大學"/>
+    </Quest>
+    <Quest text="新郎的職業是?">
+        <Option text="服裝設計"/>
+        <Option text="建築設計"/>
+        <Option text="陷阱設計"/>
+        <Option text="程式設計" answer="true"/>
+    </Quest>
+    <Quest text="新郎與新娘相差幾歲?">
+        <Option text="不到1歲" answer="true"/>
+        <Option text="1歲多"/>
+        <Option text="2歲多"/>
+        <Option text="3歲多"/>
+    </Quest>
+    <Quest text="新人將來的結婚紀念日將與哪個節日同一天?">
+        <Option text="元旦"/>
+        <Option text="中秋節"/>
+        <Option text="國慶日" answer="true"/>
+        <Option text="端午節"/>
     </Quest>
 </Questions>
