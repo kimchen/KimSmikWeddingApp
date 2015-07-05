@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Questions xmlns:android="http://schemas.android.com/apk/res/android">
-    <Quest text="新郎的星座是?">
-        <Option text="魔蝎"/>
-        <Option text="天秤"/>
-        <Option text="金牛"/>
-        <Option text="天蠍" answer="true"/>
-    </Quest>
-    <Quest text="新娘的星座是?">
-        <Option text="天秤"/>
-        <Option text="巨蟹" answer="true"/>
-        <Option text="雙魚"/>
-        <Option text="雙子"/>
-    </Quest>
     <Quest text="新郎是哪裡人?">
         <Option text="三重"/>
         <Option text="板橋"/>
@@ -36,11 +24,23 @@
         <Option text="輔仁大學" answer="true"/>
         <Option text="台北科技大學"/>
     </Quest>
+    <Quest text="新郎新娘曾一起玩過下列哪款遊戲?">
+        <Option text="魔獸世界" answer="true"/>
+        <Option text="天堂"/>
+        <Option text="神魔之塔"/>
+        <Option text="仙境傳說"/>
+    </Quest>
     <Quest text="新郎的職業是?">
         <Option text="服裝設計"/>
         <Option text="建築設計"/>
         <Option text="陷阱設計"/>
         <Option text="程式設計" answer="true"/>
+    </Quest>
+    <Quest text="新人是在甚麼時期認識的?">
+        <Option text="國中"/>
+        <Option text="高中"/>
+        <Option text="大學" answer="true"/>
+        <Option text="出社會後"/>
     </Quest>
     <Quest text="新郎與新娘相差幾歲?">
         <Option text="不到1歲" answer="true"/>
