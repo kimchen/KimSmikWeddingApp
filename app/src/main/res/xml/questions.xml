@@ -24,6 +24,12 @@
         <Option text="輔仁大學" answer="true"/>
         <Option text="台北科技大學"/>
     </Quest>
+    <Quest text="新郎擅長哪一項民俗運動?">
+        <Option text="扯鈴"/>
+        <Option text="毽子" answer="true"/>
+        <Option text="陀螺"/>
+        <Option text="跳繩"/>
+    </Quest>
     <Quest text="新郎新娘曾一起玩過下列哪款遊戲?">
         <Option text="魔獸世界" answer="true"/>
         <Option text="天堂"/>

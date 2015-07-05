@@ -28,15 +28,15 @@ public class HomeFragment extends Fragment implements IMenuFragment {
                                  Bundle savedInstanceState) {
             // Inflate the layout for this fragment
             View root = inflater.inflate(R.layout.fragment_home, container, false);
-            Button btn = (Button)(root.findViewById(R.id.testBtn));
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    intent.setClass(getActivity(),ScrollingTextActivity.class);
-                    startActivity(intent);
-                }
-            });
+//            Button btn = (Button)(root.findViewById(R.id.testBtn));
+//            btn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent();
+//                    intent.setClass(getActivity(),ScrollingTextActivity.class);
+//                    startActivity(intent);
+//                }
+//            });
             return root;
         }
     @Override
