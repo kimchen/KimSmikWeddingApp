@@ -154,6 +154,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             menuFragments.add(new HomeFragment());
             menuFragments.add(new MapFragment());
             menuFragments.add(new QuestStartFragment());
+            menuFragments.add(new GalleryFragment());
         }
 
         @Override
