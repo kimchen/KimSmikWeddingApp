@@ -11,27 +11,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/uiContainer">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clearView"
-        android:src="@drawable/stage_clear"
-        android:adjustViewBounds="true"
-        android:visibility="invisible"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <TextView
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="有獎問答-新人熟悉度大測驗"
         android:id="@+id/textView2"
-        android:layout_below="@+id/clearView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:textSize="28sp"/>
+        android:textSize="25sp"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -52,5 +41,15 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:gravity="center"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clearView"
+            android:src="@drawable/stage_cleared"
+            android:adjustViewBounds="true"
+            android:visibility="visible"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 </RelativeLayout>
