@@ -46,6 +46,5 @@ public class HomeFragment extends Fragment implements IMenuFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        getFragmentManager().beginTransaction().remove(this).commit();
     }
 }

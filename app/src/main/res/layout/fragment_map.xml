@@ -5,11 +5,12 @@
     <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/photoView"
         android:layout_gravity="center_horizontal|top"
-        android:src="@drawable/place_info"
-        android:adjustViewBounds="true" />
+        android:src="@drawable/map"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
     <!--<ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -15,7 +15,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/photoView"
-            android:src="@drawable/photo131"
             android:adjustViewBounds="false"
             android:baselineAlignBottom="false"
             android:cropToPadding="false"
