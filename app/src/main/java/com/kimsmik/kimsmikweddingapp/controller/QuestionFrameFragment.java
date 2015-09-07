@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.kimsmik.kimsmikweddingapp.IMenuFragment;
 import com.kimsmik.kimsmikweddingapp.R;
 
-public class QuestionFrameFragment extends Fragment implements IMenuFragment {
+public class QuestionFrameFragment extends Fragment{
     private FragmentActivity act;
 
     @Override
@@ -50,10 +50,5 @@ public class QuestionFrameFragment extends Fragment implements IMenuFragment {
     public void onStart() {
         super.onStart();
 
-    }
-
-    @Override
-    public String GetTitle() {
-        return "有獎問答";
     }
 }

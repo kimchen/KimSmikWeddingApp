@@ -43,4 +43,9 @@ public class HomeFragment extends Fragment implements IMenuFragment {
     public String GetTitle() {
         return "首頁";
     }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getFragmentManager().beginTransaction().remove(this).commit();
+    }
 }

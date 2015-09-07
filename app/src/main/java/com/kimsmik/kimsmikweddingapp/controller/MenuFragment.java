@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import com.kimsmik.kimsmikweddingapp.IMenuFragment;
 import com.kimsmik.kimsmikweddingapp.R;
 
-public class MapFragment extends Fragment implements IMenuFragment {
+public class MenuFragment extends Fragment implements IMenuFragment {
 
 
-    public MapFragment() {
+    public MenuFragment() {
         // Required empty public constructor
     }
 
@@ -25,12 +25,12 @@ public class MapFragment extends Fragment implements IMenuFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        return inflater.inflate(R.layout.fragment_menu, container, false);
     }
 
     @Override
     public String GetTitle() {
-        return "會場資訊";
+        return "婚宴菜單";
     }
     @Override
     public void onDestroy() {

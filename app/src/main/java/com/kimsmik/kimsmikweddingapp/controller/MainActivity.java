@@ -152,8 +152,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
             menuFragments.add(new HomeFragment());
-            menuFragments.add(new MapFragment());
             menuFragments.add(new QuestStartFragment());
+            menuFragments.add(new MapFragment());
+            menuFragments.add(new MenuFragment());
             menuFragments.add(new GalleryFragment());
         }
 

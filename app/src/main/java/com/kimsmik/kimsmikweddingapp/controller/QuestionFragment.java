@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionFragment extends Fragment implements IMenuFragment {
+public class QuestionFragment extends Fragment{
     public class Question{
         String quest = "";
         List<String> option = new ArrayList<>();
@@ -29,7 +30,7 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
     }
 
     private List<Question> questions = new ArrayList<>();
-    private RadioGroup optionGroup;
+    private LinearLayout optionGroup;
     private TextView questText;
     private TextView progressText;
     private int nowQuestIndex = 0;
@@ -86,33 +87,44 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
         correctNum = 0;
         View view = inflater.inflate(R.layout.fragment_question, container, false);
 
-        optionGroup = (RadioGroup)(view.findViewById(R.id.optionGroup));
+        optionGroup = (LinearLayout)(view.findViewById(R.id.optionGroup));
         questText = (TextView)(view.findViewById(R.id.questText));
         progressText = (TextView)(view.findViewById(R.id.progressText));
 
-        Button confirmBtn = (Button)(view.findViewById(R.id.comfirmBtn));
-        confirmBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(CheckAns()) {
-                    SetNextQuestion();
+        for(int i=0; i<optionGroup.getChildCount(); i++){
+            TextView opt = (TextView)optionGroup.getChildAt(i);
+            opt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CheckAns((TextView)v);
                 }
-            }
-        });
+            });
+        }
+
+//        Button confirmBtn = (Button)(view.findViewById(R.id.comfirmBtn));
+//        confirmBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(CheckAns()) {
+//                    SetNextQuestion();
+//                }
+//            }
+//        });
 
         SetNextQuestion();
         return view;
     }
 
-    private boolean CheckAns(){
-        RadioButton checkedBtn = (RadioButton)getView().findViewById(optionGroup.getCheckedRadioButtonId());
-        if(checkedBtn == null)
-            return false;
+    private void CheckAns(TextView tv){
+//        RadioButton checkedBtn = (RadioButton)getView().findViewById(optionGroup.getCheckedRadioButtonId());
+//        if(checkedBtn == null)
+//            return false;
         Question quest = questions.get(nowQuestIndex);
-        if(checkedBtn.getText().equals(quest.answer))
+        if(tv.getText().equals(quest.answer))
             correctNum++;
         nowQuestIndex++;
-        return true;
+        SetNextQuestion();
+        //return true;
     }
     private void SetNextQuestion(){
         if(nowQuestIndex >= questions.size()){
@@ -132,13 +144,22 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
             dialogBuilder.setTitle("答題結果");
             dialogBuilder.show();
         }else{
-            optionGroup.clearCheck();
             Question quest = questions.get(nowQuestIndex);
             questText.setText(quest.quest);
-            for(int i=0; i<quest.option.size(); i++){
-                RadioButton radioBtn =  (RadioButton)optionGroup.getChildAt(i);
-                radioBtn.setText(quest.option.get(i));
+            for(int i=0; i<optionGroup.getChildCount(); i++) {
+                TextView opt = (TextView) optionGroup.getChildAt(i);
+                if(i >= quest.option.size()) {
+                    opt.setVisibility(View.INVISIBLE);
+                }else{
+                    opt.setText(quest.option.get(i));
+                    opt.setVisibility(View.VISIBLE);
+                }
             }
+
+//            for(int i=0; i<quest.option.size(); i++){
+//                RadioButton radioBtn =  (RadioButton)optionGroup.getChildAt(i);
+//                radioBtn.setText(quest.option.get(i));
+//            }
             progressText.setText((nowQuestIndex + 1) + "/" + questions.size());
         }
     }
@@ -147,13 +168,13 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
         String msg = "答對題數 : " + correctNum + "/" + questions.size() + "\n\n";
         float persent = ((float)correctNum)/((float)questions.size());
         if(persent >= 1){
-            msg += "恭喜你答對所有題目\n你真是太了解新人了\n婚禮當天請至現場\n出示App禮的通關證明\n以換取神祕小禮";
+            msg += "恭喜你答對所有題目\n你真是太了解新人了\n婚禮當天請至現場\n出示App內的通關證明\n換取神祕小禮";
         }else if(persent >= 0.8){
-            msg += "真是太可惜了\n只差一點點就全部正解了呢\n請再接再厲";
+            msg += "真是太可惜了\n只差一點點就全部正解了\n請再接再厲";
         }else if(persent >= 0.5){
             msg += "看來你對新人還是一知半解的喔\n但沒關係\n請再多試幾次\n也可更了解新人喔";
         }else{
-            msg += "哎呀\n你對新人不是很了解的樣子呢\n這樣子不太行唷\n請多試幾次\n也許你會慢慢了解新人唷";
+            msg += "哎呀\n你對新人不是很了解的樣子呢\n這樣子不太行唷\n請多試幾次\n也許你會慢慢了解新人喔";
         }
 
         return msg;
@@ -166,11 +187,6 @@ public class QuestionFragment extends Fragment implements IMenuFragment {
     @Override
     public void onPause() {
         super.onPause();
-    }
-
-    @Override
-    public String GetTitle() {
-        return "有獎問答";
     }
 
     public interface QuizFinishListener{

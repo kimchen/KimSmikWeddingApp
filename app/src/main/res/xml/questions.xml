@@ -3,44 +3,62 @@
     <Quest text="新郎是哪裡人?">
         <Option text="三重"/>
         <Option text="板橋"/>
-        <Option text="中和"/>
+        <Option text="天龍國"/>
         <Option text="新莊" answer="true"/>
     </Quest>
     <Quest text="新娘家住在哪一個捷運站附近?">
-        <Option text="六張犁" answer="true"/>
-        <Option text="國父紀念館"/>
-        <Option text="公館"/>
-        <Option text="中正紀念堂"/>
+        <Option text="六張犁站" answer="true"/>
+        <Option text="國父紀念館站"/>
+        <Option text="路邊站"/>
+        <Option text="美麗島站"/>
     </Quest>
     <Quest text="新郎大學時參加過哪種系隊?">
-        <Option text="足球"/>
+        <Option text="金排球"/>
         <Option text="籃球" answer="true"/>
+        <Option text="足球"/>
         <Option text="桌球"/>
-        <Option text="排球"/>
     </Quest>
     <Quest text="新娘以前就讀於哪所大學?">
         <Option text="東吳大學"/>
-        <Option text="師範大學"/>
+        <Option text="家裡蹲大學"/>
         <Option text="輔仁大學" answer="true"/>
         <Option text="台北科技大學"/>
     </Quest>
-    <Quest text="新郎擅長哪一項民俗運動?">
+	<Quest text="新郎的職業是?">
+        <Option text="服裝設計"/>
+        <Option text="建築設計"/>
+        <Option text="陷阱設計"/>
+        <Option text="程式設計" answer="true"/>
+    </Quest>
+    <Quest text="新娘平常休閒活動是?">
+        <Option text="看小說" answer="true"/>
+        <Option text="寫小說"/>
+        <Option text="看別人寫小說"/>
+        <Option text="原地後空翻"/>
+    </Quest>
+	<Quest text="新郎擅長哪一項民俗運動?">
         <Option text="扯鈴"/>
         <Option text="毽子" answer="true"/>
         <Option text="陀螺"/>
-        <Option text="跳繩"/>
+        <Option text="搶孤"/>
     </Quest>
-    <Quest text="新郎新娘曾一起玩過下列哪款遊戲?">
+	<Quest text="新人不曾去過下列哪個地方?">
+        <Option text="艾澤拉斯"/>
+        <Option text="召換峽谷"/>
+        <Option text="聖休亞瑞"/>
+        <Option text="撒哈拉沙漠" answer="true"/>
+    </Quest>
+    <Quest text="新人曾一起玩過下列哪款遊戲?">
         <Option text="魔獸世界" answer="true"/>
         <Option text="天堂"/>
         <Option text="神魔之塔"/>
         <Option text="仙境傳說"/>
     </Quest>
-    <Quest text="新郎的職業是?">
-        <Option text="服裝設計"/>
-        <Option text="建築設計"/>
-        <Option text="陷阱設計"/>
-        <Option text="程式設計" answer="true"/>
+    <Quest text="新人的生肖是?">
+        <Option text="龍與蛇"/>
+        <Option text="雞與狗"/>
+        <Option text="牛與虎" answer="true"/>
+        <Option text="熊與貓"/>
     </Quest>
     <Quest text="新人是在甚麼時期認識的?">
         <Option text="國中"/>
@@ -48,11 +66,17 @@
         <Option text="大學" answer="true"/>
         <Option text="出社會後"/>
     </Quest>
-    <Quest text="新郎與新娘相差幾歲?">
+    <Quest text="新人相差幾歲?">
         <Option text="不到1歲" answer="true"/>
         <Option text="1歲多"/>
         <Option text="2歲多"/>
         <Option text="3歲多"/>
+    </Quest>
+	<Quest text="新人在一起幾年了??">
+        <Option text="5"/>
+        <Option text="10" answer="true"/>
+        <Option text="15"/>
+        <Option text="100"/>
     </Quest>
     <Quest text="新人將來的結婚紀念日將與哪個節日同一天?">
         <Option text="元旦"/>

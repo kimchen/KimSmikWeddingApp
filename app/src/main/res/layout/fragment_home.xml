@@ -7,7 +7,7 @@
         android:id="@+id/imageView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/wedding_icon"
+        android:src="@drawable/main_web"
         android:alpha="1"
         android:adjustViewBounds="true" />
     <TextView

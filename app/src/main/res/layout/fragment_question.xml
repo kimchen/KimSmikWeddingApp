@@ -12,7 +12,8 @@
         android:layout_alignParentRight="true"
         android:layout_margin="10dp"
         android:text="1/10"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textColor="#ffff0000" />
 
     <TextView
         android:id="@+id/questTitleText"
@@ -33,61 +34,73 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="20sp" />
 
-    <RadioGroup
+    <LinearLayout
         android:id="@+id/optionGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/questText"
-       >
-
-        <RadioButton
-            android:id="@+id/option0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:checked="false"
-            android:text="New RadioButton"
-            android:textSize="20sp" />
-
-        <RadioButton
-            android:id="@+id/option1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:checked="false"
-            android:text="New RadioButton"
-            android:textSize="20sp" />
-
-        <RadioButton
-            android:id="@+id/option2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:checked="false"
-            android:text="New RadioButton"
-            android:textSize="20sp" />
-
-        <RadioButton
-            android:id="@+id/option3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:checked="false"
-            android:text="New RadioButton"
-            android:textSize="20sp" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/comfirmBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="確定"
-        android:textSize="30sp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="40dp" />
+        android:layout_below="@+id/questText"
+        android:orientation="vertical"
+       >
+
+        <TextView
+            android:id="@+id/option0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="New RadioButton"
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:autoText="false"
+            android:textStyle="bold"
+            android:textColor="#ff0099ff" />
+
+        <TextView
+            android:id="@+id/option1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="New RadioButton"
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:autoText="false"
+            android:textStyle="bold"
+            android:textColor="#ff0099ff" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="New RadioButton"
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:autoText="false"
+            android:textStyle="bold"
+            android:textColor="#ff0099ff" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="New RadioButton"
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:autoText="false"
+            android:textStyle="bold"
+            android:textColor="#ff0099ff" />
+    </LinearLayout>
+
+    <!--<Button-->
+        <!--android:id="@+id/comfirmBtn"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="確定"-->
+        <!--android:textSize="30sp"-->
+        <!--android:layout_marginLeft="40dp"-->
+        <!--android:layout_marginRight="40dp"-->
+        <!--android:layout_marginBottom="40dp"-->
+        <!--android:background="#ff9fe3ff" />-->
 
 
 </RelativeLayout>

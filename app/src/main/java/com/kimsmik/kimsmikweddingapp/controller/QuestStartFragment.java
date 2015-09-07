@@ -80,4 +80,9 @@ public class QuestStartFragment extends Fragment implements IMenuFragment {
     public String GetTitle() {
         return "有獎問答";
     }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getFragmentManager().beginTransaction().remove(this).commit();
+    }
 }
